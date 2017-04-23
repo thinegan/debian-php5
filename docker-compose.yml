@@ -1,0 +1,32 @@
+version: "2.1"
+# Example of spinning 3 nodejs containers
+services:
+  phpserver1:
+    image: thinegan/debian-php5
+    container_name: phpfpm1
+    hostname: phpserver1
+    build: .
+    expose:
+      - "9000"
+    volumes:
+      - /home/www/public_html/dev.timeclone.com:/home/www/public_html/dev.timeclone.com
+
+  phpserver2:
+    image: thinegan/debian-php5
+    container_name: phpfpm2
+    hostname: phpserver2
+    build: .
+    expose:
+      - "9000"
+    volumes:
+      - /home/www/public_html/dev.timeclone.com:/home/www/public_html/dev.timeclone.com
+
+  phpserver3:
+    image: thinegan/debian-php5
+    container_name: phpfpm3
+    hostname: phpserver3
+    build: .
+    expose:
+      - "9000"
+    volumes:
+      - /home/www/public_html/dev.timeclone.com:/home/www/public_html/dev.timeclone.com
