@@ -11,6 +11,9 @@ Dockerized php-fpm service, built on top of official [Debian](https://hub.docker
 * supervisor
 * php-fpm - v5.6.30
 
+# Logs (stderr & stdout)
+* /var/log/supervisor
+
 # Config:
 * Dependencies Package:
   * php5-mysql
