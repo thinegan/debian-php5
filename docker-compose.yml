@@ -1,13 +1,17 @@
 version: "2.1"
-# Example of spinning 3 nodejs containers
+# Example of spinning 3 php5 containers
 services:
   phpserver1:
     image: thinegan/debian-php5
     container_name: phpfpm1
     hostname: phpserver1
     build: .
-    expose:
-      - "9000"
+    # Exposed to host machines
+    ports:
+      - "9001:9000"
+    # Exposed to link containers
+    #expose:
+    #  - "9000"
     volumes:
       - /home/www/public_html/dev.timeclone.com:/home/www/public_html/dev.timeclone.com
 
@@ -16,8 +20,12 @@ services:
     container_name: phpfpm2
     hostname: phpserver2
     build: .
-    expose:
-      - "9000"
+    # Exposed to host machines
+    ports:
+      - "9002:9000"
+    # Exposed to link containers
+    #expose:
+    #  - "9000"
     volumes:
       - /home/www/public_html/dev.timeclone.com:/home/www/public_html/dev.timeclone.com
 
@@ -26,7 +34,11 @@ services:
     container_name: phpfpm3
     hostname: phpserver3
     build: .
-    expose:
-      - "9000"
+    # Exposed to host machines
+    ports:
+      - "9003:9000"
+    # Exposed to link containers
+    #expose:
+    #  - "9000"
     volumes:
       - /home/www/public_html/dev.timeclone.com:/home/www/public_html/dev.timeclone.com

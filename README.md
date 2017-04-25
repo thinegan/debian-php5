@@ -2,7 +2,7 @@
 Dockerized php-fpm service, built on top of official [Debian](https://hub.docker.com/_/debian/) images with supervisor.
 
 # Image tags
-* thinegan/debian-php5:jessie (Debian GNU/Linux 8)
+* thinegan/debian-php5:latest (Debian GNU/Linux 8)
 
 # Installed packages
 * [8.7, 8, jessie, latest (jessie/Dockerfile)](https://github.com/tianon/docker-brew-debian/blob/e8131d071a42b8e88cabbb0aa33023c7b66b7b93/jessie/Dockerfile)
@@ -27,8 +27,6 @@ Dockerized php-fpm service, built on top of official [Debian](https://hub.docker
   * php5-curl
   * php5-cli
   * php5-mcrypt
-* host path : /home/www/public_html/dev.timeclone.com
-* container path : /home/www/public_html/dev.timeclone.com
 * php.ini setup : config/custom.ini
 * supervisor run : /usr/local/sbin/php-fpm -c /usr/local/etc/php-fpm.conf
 * exposed port 9000
@@ -36,10 +34,23 @@ Dockerized php-fpm service, built on top of official [Debian](https://hub.docker
 
 # Run example
 ```console
-$docker run -d -P --name test_nodejs thinegan/debian-nodejs:jessie
+$docker pull thinegan/debian-php5
+$docker run -d -P --name test_php thinegan/debian-php5
 $docker port test_php 9000
 0.0.0.0:32768
 
+# Docker compose, example of spinning 1 php-fpm containers with mounted volume from host.
+services:
+  phpserver1:
+    image: thinegan/debian-php5
+    container_name: phpfpm1
+    hostname: phpserver1
+    build: .
+    # Exposed to host machines
+    ports:
+      - "9001:9000"
+    volumes:
+      - /home/www/public_html/dev.timeclone.com:/home/www/public_html/dev.timeclone.com
 ```
 
 # Issues
