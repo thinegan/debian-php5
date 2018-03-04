@@ -2,7 +2,7 @@ FROM debian:jessie
 MAINTAINER Thinegan Ratnams <thinegan@thinegan.com>
 
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && apt-get install -y vim locales supervisor
+RUN apt-get update && apt-get install -y locales supervisor
 RUN apt-get install -y php5-mysql php5-xmlrpc php5-readline php5-ldap php5-json php5-imagick \
 php5-gd php5-dev php5-curl php5-cli php5-mcrypt php5-fpm
 
