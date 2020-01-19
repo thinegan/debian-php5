@@ -15,30 +15,30 @@ services:
     volumes:
       - /home/www/public_html/dev.timeclone.com:/home/www/public_html/dev.timeclone.com
 
-  phpserver2:
-    image: thinegan/debian-php5
-    container_name: phpfpm2
-    hostname: phpserver2
-    build: .
-    # Exposed to host machines
-    ports:
-      - "9002:9000"
-    # Exposed to link containers
-    #expose:
-    #  - "9000"
-    volumes:
-      - /home/www/public_html/dev.timeclone.com:/home/www/public_html/dev.timeclone.com
+  # phpserver2:
+  #   image: thinegan/debian-php5
+  #   container_name: phpfpm2
+  #   hostname: phpserver2
+  #   build: .
+  #   # Exposed to host machines
+  #   ports:
+  #     - "9002:9000"
+  #   # Exposed to link containers
+  #   #expose:
+  #   #  - "9000"
+  #   volumes:
+  #     - /home/www/public_html/dev.timeclone.com:/home/www/public_html/dev.timeclone.com
 
-  phpserver3:
-    image: thinegan/debian-php5
-    container_name: phpfpm3
-    hostname: phpserver3
-    build: .
-    # Exposed to host machines
-    ports:
-      - "9003:9000"
-    # Exposed to link containers
-    #expose:
-    #  - "9000"
-    volumes:
-      - /home/www/public_html/dev.timeclone.com:/home/www/public_html/dev.timeclone.com
+  # phpserver3:
+  #   image: thinegan/debian-php5
+  #   container_name: phpfpm3
+  #   hostname: phpserver3
+  #   build: .
+  #   # Exposed to host machines
+  #   ports:
+  #     - "9003:9000"
+  #   # Exposed to link containers
+  #   #expose:
+  #   #  - "9000"
+  #   volumes:
+  #     - /home/www/public_html/dev.timeclone.com:/home/www/public_html/dev.timeclone.com
